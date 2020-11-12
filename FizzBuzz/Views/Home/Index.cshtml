@@ -1,0 +1,35 @@
+﻿@model FizzBuzz.Models.FormModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FizzBuzz App</title>
+</head>
+<body>
+	<div>
+		@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+		{
+			@Html.TextBoxFor(model => model.Input, new { placeholder = "1,2,3,15", required = "required" })
+			<br />
+			<input type="submit" value="Submit" />
+			<br />
+			if (ViewBag.OutputList != null)
+			{
+				<h2>Output:</h2>
+				<ul>
+					@foreach (string s in ViewBag.OutputList)
+					{
+						<li>@s</li>
+					}
+				</ul>
+			}
+		}
+	</div>
+</body>
+</html>
